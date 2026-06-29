@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name | Data Analyst Portfolio</title>
+<style>
+  :root {
+    --navy: #0f2440;
+    --accent: #2dd4bf;
+    --slate: #475569;
+    --light: #f8fafc;
+    --border: #e2e8f0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b; line-height: 1.6; background: #fff;
+  }
+  a { color: var(--navy); text-decoration: none; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 2rem; background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);
+  }
+  nav .logo { font-weight: 700; font-size: 1.2rem; color: var(--navy); }
+  nav ul { display: flex; gap: 1.8rem; list-style: none; }
+  nav ul a { font-weight: 500; color: var(--slate); transition: color .2s; }
+  nav ul a:hover { color: var(--accent); }
+
+  /* HERO */
+  header.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+    color: #fff; padding: 5rem 2rem; text-align: center;
+  }
+  .hero h1 { font-size: 2.8rem; margin-bottom: .5rem; }
+  .hero .tagline { font-size: 1.25rem; color: var(--accent); font-weight: 500; margin-bottom: 1rem; }
+  .hero p.summary { max-width: 680px; margin: 0 auto 2rem; color: #cbd5e1; }
+  .hero .cta { display: inline-flex; gap: 1rem; }
+  .btn {
+    padding: .8rem 1.6rem; border-radius: 8px; font-weight: 600;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-primary { background: var(--accent); color: var(--navy); }
+  .btn-secondary { background: transparent; color: #fff; border: 1px solid #fff; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.2); }
+
+  /* METRICS BAR (appeals to leadership) */
+  .metrics {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem;
+    padding: 2.5rem 2rem; background: var(--light); border-bottom: 1px solid var(--border);
+  }
+  .metric { text-align: center; }
+  .metric .num { font-size: 2.2rem; font-weight: 700; color: var(--navy); }
+  .metric .label { color: var(--slate); font-size: .9rem; text-transform: uppercase; letter-spacing: .5px; }
+
+  /* SECTIONS */
+  section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+  section h2 {
+    font-size: 1.9rem; color: var(--navy); margin-bottom: .5rem;
+    text-align: center;
+  }
+  section .section-sub { text-align: center; color: var(--slate); margin-bottom: 2.5rem; }
+
+  /* PROJECT CARDS */
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.8rem; }
+  .card {
+    border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+    background: #fff; transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(15,36,64,.12); }
+  .card .thumb {
+    height: 180px; background: linear-gradient(135deg, #e0f2fe, #f0fdfa);
+    display: flex; align-items: center; justify-content: center; color: var(--slate);
+    font-size: .9rem;
+  }
+  .card .thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+  .card-body h3 { color: var(--navy); margin-bottom: .4rem; }
+  .card .impact {
+    background: #f0fdfa; color: #0d9488; font-size: .8rem; font-weight: 600;
+    padding: .3rem .7rem; border-radius: 6px; display: inline-block; margin-bottom: .8rem; width: fit-content;
+  }
+  .card-body p { color: var(--slate); font-size: .92rem; flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0; }
+  .tag { background: var(--light); border: 1px solid var(--border); color: var(--slate);
+    font-size: .75rem; padding: .25rem .6rem; border-radius: 20px; }
+  .card-links { display: flex; gap: 1rem; font-size: .9rem; font-weight: 600; }
+  .card-links a { color: var(--accent); }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1.5rem; }
+  .skill-col h4 { color: var(--navy); margin-bottom: .6rem; border-bottom: 2px solid var(--accent); padding-bottom: .3rem; display: inline-block; }
+  .skill-col ul { list-style: none; }
+  .skill-col li { color: var(--slate); padding: .25rem 0; }
+
+  /* ABOUT */
+  .about { background: var(--light); }
+  .about .about-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+  .about p { color: var(--slate); margin-bottom: 1rem; }
+
+  /* FOOTER */
+  footer { background: var(--navy); color: #cbd5e1; text-align: center; padding: 2.5rem 2rem; }
+  footer a { color: var(--accent); }
+  footer .social { margin-bottom: 1rem; display: flex; gap: 1.5rem; justify-content: center; }
+
+  @media (max-width: 640px) {
+    nav ul { display: none; }
+    .hero h1 { font-size: 2rem; }
+    .metrics { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <div class="logo">Your Name</div>
+  <ul>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <h1>Your Name</h1>
+  <p class="tagline">Data Analyst — Turning Data into Decisions</p>
+  <p class="summary">
+    I help leadership teams cut through noise and act with confidence. I translate complex
+    datasets into clear, measurable business outcomes — driving revenue growth, cost savings,
+    and smarter strategy.
+  </p>
+  <div class="cta">
+    <a href="#projects" class="btn btn-primary">View My Work</a>
+    <a href="#" class="btn btn-secondary">Download Résumé</a>
+  </div>
+</header>
+
+<!-- ===== IMPACT METRICS (edit these to show your real wins) ===== -->
+<div class="metrics">
+  <div class="metric"><div class="num">$2.4M</div><div class="label">Cost Savings Identified</div></div>
+  <div class="metric"><div class="num">18%</div><div class="label">Avg. Revenue Lift</div></div>
+  <div class="metric"><div class="num">40+</div><div class="label">Dashboards Delivered</div></div>
+  <div class="metric"><div class="num">6 yrs</div><div class="label">Experience</div></div>
+</div>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects">
+  <h2>Featured Projects</h2>
+  <p class="section-sub">Each project starts with a business question — and ends with a decision.</p>
+
+  <div class="projects">
+
+    <!-- PROJECT CARD TEMPLATE — copy/paste this block per project -->
+    <div class="card">
+      <div class="thumb">
+        <!-- Replace with: <img src="images/project1.png" alt="Project 1"> -->
+        [Your chart / dashboard screenshot]
+      </div>
+      <div class="card-body">
+        <span class="impact">↑ Reduced churn by 23%</span>
+        <h3>Customer Churn Prediction</h3>
+        <p>
+          <strong>Problem:</strong> Leadership lacked early warning on at-risk accounts.<br>
+          <strong>Approach:</strong> Built a logistic regression model + cohort analysis in Python
+          to flag high-risk customers 60 days out.<br>
+          <strong>Outcome:</strong> Enabled targeted retention, recovering an estimated $480K ARR.
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">SQL</span>
+          <span class="tag">Tableau</span><span class="tag">Predictive Modeling</span>
+        </div>
+        <div class="card-links">
+          <a href="#" target="_blank">Live Dashboard →</a>
+          <a href="#" target="_blank">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">[Your chart / dashboard screenshot]</div>
+      <div class="card-body">
+        <span class="impact">↓ Cut reporting time 80%</span>
+        <h3>Executive Sales Dashboard</h3>
+        <p>
+          <strong>Problem:</strong> Manual weekly reports took analysts 10+ hours.<br>
+          <strong>Approach:</strong> Automated an end-to-end Power BI pipeline with refreshed KPIs.<br>
+          <strong>Outcome:</strong> Real-time visibility for the C-suite; freed 500+ analyst hours/yr.
+        </p>
+        <div class="tags">
+          <span class="tag">Power BI</span><span class="tag">SQL</span>
+          <span class="tag">ETL</span><span class="tag">DAX</span>
+        </div>
+        <div class="card-links">
+          <a href="#" target="_blank">Live Dashboard →</a>
+          <a href="#" target="_blank">Case Study →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb">[Your chart / dashboard screenshot]</div>
+      <div class="card-body">
+        <span class="impact">$2.4M savings identified</span>
+        <h3>Supply Chain Cost Analysis</h3>
+        <p>
+          <strong>Problem:</strong> Rising logistics spend with no clear driver.<br>
+          <strong>Approach:</strong> Root-cause analysis across 3 years of vendor + shipment data.<br>
+          <strong>Outcome:</strong> Identified 4 inefficiencies; recommendations adopted board-wide.
+        </p>
+        <div class="tags">
+          <span class="tag">SQL</span><span class="tag">Excel</span>
+          <span class="tag">Python</span><span class="tag">Storytelling</span>
+        </div>
+        <div class="card-links">
+          <a href="#" target="_blank">Case Study →</a>
+          <a href="#" target="_blank">GitHub →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills">
+  <h2>Skills & Tools</h2>
+  <p class="section-sub">Technical depth, business fluency.</p>
+  <div class="skills-grid">
+    <div class="skill-col">
+      <h4>Languages</h4>
+      <ul><li>SQL (Advanced)</li><li>Python (pandas, scikit-learn)</li><li>R</li><li>DAX / M</li></ul>
+    </div>
+    <div class="skill-col">
+      <h4>Visualization</h4>
+      <ul><li>Tableau</li><li>Power BI</li><li>Looker</li><li>Matplotlib / Plotly</li></ul>
+    </div>
+    <div class="skill-col">
+      <h4>Data Engineering</h4>
+      <ul><li>ETL Pipelines</li><li>BigQuery / Snowflake</li><li>dbt</li><li>Airflow</li></ul>
+    </div>
+    <div class="skill-col">
+      <h4>Business</h4>
+      <ul><li>Stakeholder Mgmt</li><li>A/B Testing</li><li>Forecasting</li><li>Data Storytelling</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="about">
+  <div class="about-inner">
+    <h2>About Me</h2>
+    <p>
+      I'm a data analyst with 6+ years of experience helping organizations make
+      evidence-based decisions. My focus isn't just clean dashboards — it's the
+      <strong>business outcome behind every number</strong>.
+    </p>
+    <p>
+      I partner closely with leadership to define the right questions, then deliver
+      analysis that's rigorous, clear, and actionable. I believe great analytics
+      should change how a team thinks and acts.
+    </p>
+  </div>
+</section>
+
+<!-- ===== CONTACT / FOOTER ===== -->
+<footer id="contact">
+  <h2 style="color:#fff; margin-bottom:1rem;">Let's Talk</h2>
+  <div class="social">
+    <a href="mailto:you@email.com">Email</a>
+    <a href="#" target="_blank">LinkedIn</a>
+    <a href="#" target="_blank">GitHub</a>
+  </div>
+  <p>© 2026 Your Name. Built to drive outcomes.</p>
+</footer>
+
+</body>
+</html>
