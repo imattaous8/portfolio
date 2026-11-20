@@ -1,4 +1,5 @@
-<title>Mattaous Analytics</title>
+<!doctype html><html><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><title>Irene Mattaous | Analytics Portfolio</title>
+</head><body>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
@@ -368,6 +369,9 @@ body{
   <button class="tab-btn" role="tab" aria-selected="false" onclick="switchTab(2,this)">
     <span class="tab-icon">🌊</span> Policy Analysis
   </button>
+  <button class="tab-btn" role="tab" aria-selected="false" onclick="switchTab(3,this)">
+    <span class="tab-icon">💉</span> Type 1 Diabetes
+  </button>
 </nav>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -619,9 +623,142 @@ body{
 
 </div>
 
+<!-- ═══════════════════════════════════════════════════════
+     PANEL 4 · TYPE 1 DIABETES & INSULIN AFFORDABILITY
+═══════════════════════════════════════════════════════ -->
+<div class="panel" id="p4" role="tabpanel">
+
+  <div class="ccard brief-hero">
+    <div class="eyebrow">Health Policy Analysis · October 2026</div>
+    <h2>Type 1 Diabetes Is Rising in Young People. Did the $35 Insulin Cap Reach Them?</h2>
+    <div class="ps">
+      <div class="ps-row">
+        <div class="ps-lbl">The problem</div>
+        <div class="ps-txt"><b>Type 1 diabetes is becoming more common in young people, and everyone with it needs insulin every day, yet cost has pushed many to ration it.</b> In 2021, about 1 in 6 adults who use insulin rationed it because of cost.</div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-lbl">Why it matters</div>
+        <div class="ps-txt">2.1 million Americans live with type 1 diabetes, including 314,000 under age 20. New cases among youth rose about 2% a year from 2002 to 2018, fastest among Asian/Pacific Islander and Hispanic youth.</div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-lbl">The question</div>
+        <div class="ps-txt">Medicare capped insulin at $35 a month in 2023. Did it work, and who is it still leaving out?</div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-lbl">The answer</div>
+        <div class="ps-txt">It worked for Medicare: costs fell and almost no fills exceeded $35. But the groups that ration insulin most, the uninsured, the privately insured, and adults 65 and younger, fall largely outside it. The cap should be extended to all private plans, with a $35 option for the uninsured.</div>
+      </div>
+    </div>
+    <div class="tags"><span>Multi-source analysis</span><span>Before/after policy evaluation</span><span>Health economics</span><span>Data visualization</span></div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-tile hi">
+      <div class="lbl">Americans with T1D</div>
+      <div class="val">2.1M</div>
+      <div class="dl">including 314,000 children and teens under 20</div>
+      <div class="src">CDC [1]</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="lbl">Youth Cases Rising</div>
+      <div class="val">+2.0%/yr</div>
+      <div class="dl">new cases per 100,000 youth: 19.5 (2002–03) → 22.2 (2017–18)</div>
+      <div class="src">SEARCH study [2]</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="lbl">Rationed Insulin</div>
+      <div class="val">1.3M</div>
+      <div class="dl">U.S. adults rationed insulin due to cost in 2021 (16.5% of users)</div>
+      <div class="src">Gaffney et al. [3]</div>
+    </div>
+    <div class="kpi-tile">
+      <div class="lbl">Medicare Cap Effect</div>
+      <div class="val">−21%</div>
+      <div class="dl">average out-of-pocket cost per 30-day supply: $22.95 → $18.16</div>
+      <div class="src">JAMA, 2026 [4]</div>
+    </div>
+  </div>
+
+  <div class="crow c1-1">
+    <div class="ccard">
+      <h3>Who Is Driving the Rise in New Cases</h3>
+      <div class="sub">Annual change in new type 1 diabetes cases among U.S. youth (ages 0–19), 2002–2018 · SEARCH for Diabetes in Youth [2]</div>
+      <div class="cwrap" style="height:220px"><canvas id="incChart"></canvas></div>
+      <div class="note"><b>Asian/Pacific Islander (+4.8%/yr) and Hispanic (+4.1%/yr) youth</b> saw new cases grow far faster than White youth (+0.6%/yr). Based on 18,169 diagnosed cases.</div>
+    </div>
+    <div class="ccard">
+      <h3>Who Rations Insulin</h3>
+      <div class="sub">Share of U.S. adult insulin users who rationed due to cost, by coverage, 2021 · Gaffney et al., Annals of Internal Medicine [3]</div>
+      <div class="cwrap" style="height:220px"><canvas id="ratChart"></canvas></div>
+      <div class="note"><b>The uninsured (29.2%) and privately insured (18.8%) rationed most.</b> Adults 65 and younger rationed at nearly twice the rate of older adults (20.4% vs. 11.2%).</div>
+    </div>
+  </div>
+
+  <div class="crow c2-1">
+    <div class="ccard">
+      <h3>What Patients Pay for Insulin, 2018 vs. 2025</h3>
+      <div class="sub">Average out-of-pocket cost per one-month supply, in 2025 dollars · HHS/ASPE, July 2026 [5] · dashed line = $35 cap</div>
+      <div class="cwrap" style="height:250px"><canvas id="oopChart"></canvas></div>
+      <div class="note">Costs fell for everyone after the 2023 Medicare cap and manufacturer list-price cuts of up to 78%. <b>Medicare dropped 72%, to $12.04.</b> But cash-paying patients, mostly the uninsured, still paid $70.93 a month, about twice the cap.</div>
+    </div>
+    <div class="ccard">
+      <h3>Recommendation</h3>
+      <div class="sub">Based on this analysis</div>
+      <ol class="policy-list">
+        <li><div><b>Extend the $35 cap to all private plans</b>29 states and D.C. cap insulin for state-regulated plans, but those laws don't reach self-funded employer plans, which cover 63% of workers with employer coverage [5]. Only federal law can.</div></li>
+        <li><div><b>Guarantee a $35 option for the uninsured</b>They ration the most (29.2%) and still pay about $71 a month. Existing $35 cash-price programs could be made universal.</div></li>
+        <li><div><b>Measure the results</b>Track rationing and refill rates by age and coverage, the way researchers evaluated the Medicare cap [4].</div></li>
+      </ol>
+      <div class="mech"><b>Evidence it works:</b> after Medicare's cap, the share of fills over $35 fell from 13% to almost none, and patients who had paid the most filled more prescriptions (10.4 → 11.2 a year) [4].</div>
+    </div>
+  </div>
+
+  <div class="crow c1">
+    <div class="ccard">
+      <h3>Trade-offs</h3>
+      <div class="sub">What to weigh before extending the cap</div>
+      <div class="tradeoffs">
+        <div class="pro">
+          <h4>Advantages</h4>
+          <ul>
+            <li>Already proven in Medicare, with measurable drops in cost and gains in refills among the highest-cost patients [4].</li>
+            <li>Targets the groups that ration most: the uninsured, the privately insured, and adults 65 and younger [3].</li>
+            <li>Builds on 29 state laws and the 2023 manufacturer price cuts rather than starting from scratch [5].</li>
+            <li>Simple for patients: one predictable monthly price.</li>
+          </ul>
+        </div>
+        <div class="con">
+          <h4>Limitations</h4>
+          <ul>
+            <li>Insurers may pass part of the cost on through higher premiums.</li>
+            <li>Reaching self-funded employer plans requires new federal legislation.</li>
+            <li>The cap covers insulin only, not other supplies such as pumps and glucose monitors.</li>
+            <li>Most cost studies combine type 1 and type 2 insulin users, so type 1–specific effects aren't measured separately.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="crow c1">
+    <div class="ccard">
+      <h3>Sources</h3>
+      <div class="sub">Every figure on this page comes from these sources, checked October 2026</div>
+      <ol class="src-list">
+        <li>Centers for Disease Control and Prevention. <a href="https://www.cdc.gov/diabetes/php/data-research/index.html" target="_blank" rel="noopener">National Diabetes Statistics Report.</a> Updated September 2026.</li>
+        <li>SEARCH for Diabetes in Youth Study (2023). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10091237/" target="_blank" rel="noopener">Trends in Incidence of Youth-Onset Type 1 and Type 2 Diabetes, 2002–2018.</a> The Lancet Diabetes &amp; Endocrinology.</li>
+        <li>Gaffney, A. et al. (2022). Prevalence and Correlates of Patient Rationing of Insulin in the United States. Annals of Internal Medicine, doi:10.7326/M22-2477. <a href="https://www.healio.com/news/primary-care/20221018/13-million-us-adults-with-diabetes-rationed-insulin-in-the-past-year" target="_blank" rel="noopener">Summary (Healio).</a></li>
+        <li>Myerson, R. et al. (2026). <a href="https://jamanetwork.com/journals/jama/article-abstract/2850128" target="_blank" rel="noopener">Insulin Costs and Use by Medicare Beneficiaries After the Inflation Reduction Act Out-of-Pocket Cap.</a> JAMA 336(1).</li>
+        <li>HHS Office of the Assistant Secretary for Planning and Evaluation (2026, July). <a href="https://aspe.hhs.gov/reports/insulin-affordability-landscape" target="_blank" rel="noopener">The Changing Insulin Affordability Landscape.</a></li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
 <!-- FOOTER -->
 <footer class="pg-footer">
-  Irene Mattaous · Data Analytics Portfolio · Project Performance &amp; Impact tabs: modeled on a real program, figures rounded and illustrative · Policy Analysis: figures cited to public sources
+  Irene Mattaous · Data Analytics Portfolio · Project Performance &amp; Impact tabs: modeled on a real program, figures rounded and illustrative · Policy Analysis &amp; Type 1 Diabetes: figures cited to public sources
 </footer>
 
 <script>
@@ -705,14 +842,14 @@ function cc(){ return { text:cv('--text2'), grid:cv('--border'), surface:cv('--s
 // ─────────────────────────────────────────────
 const PANELS   = document.querySelectorAll('.panel');
 const TAB_BTNS = document.querySelectorAll('.tab-btn');
-const INITED   = [false, false, false];
+const INITED   = [false, false, false, false];
 
 function switchTab(i, btn){
   TAB_BTNS.forEach(b => b.setAttribute('aria-selected','false'));
   PANELS.forEach(p  => p.classList.remove('active'));
   btn.setAttribute('aria-selected','true');
   PANELS[i].classList.add('active');
-  if(!INITED[i]){ INITED[i]=true; [initP1,initP2,initP3][i](); }
+  if(!INITED[i]){ INITED[i]=true; [initP1,initP2,initP3,initP4][i](); }
 }
 
 // ─────────────────────────────────────────────
@@ -751,6 +888,7 @@ function refreshAllCharts(){
   if(INITED[0]) initP1();
   if(INITED[1]) initP2();
   if(INITED[2]) initP3();
+  if(INITED[3]) initP4();
 }
 
 // ─────────────────────────────────────────────
@@ -1216,8 +1354,116 @@ function initP3(){
 }
 
 // ─────────────────────────────────────────────
+// PANEL 4 · TYPE 1 DIABETES (verified data, see Sources on the page)
+// ─────────────────────────────────────────────
+const T1D_INC = { // SEARCH 2002–2018, adjusted annual % change in youth T1D incidence
+  labels:['All youth','Asian/Pacific Islander','Hispanic','Black','White'],
+  vals:[2.02, 4.84, 4.14, 2.93, 0.60],
+};
+const T1D_RATION = { // Gaffney 2022 (NHIS 2021), % of adult insulin users who rationed
+  labels:['Uninsured','Private insurance','Other coverage','Medicare'],
+  vals:[29.2, 18.8, 16.1, 11.6],
+};
+const T1D_OOP = { // ASPE July 2026, OOP per one-month supply, 2025 dollars
+  labels:['Commercial insurance','Medicare','Cash / uninsured'],
+  y2018:[39.13, 42.79, 212.81],
+  y2025:[18.26, 12.04, 70.93],
+};
+
+function initP4(){
+  const c=cc(), teal=cv('--teal'), red=cv('--red'), blue=cv('--blue'), mute=cv('--text2');
+  const tip={backgroundColor:c.surface,titleColor:c.text,bodyColor:c.text,borderColor:c.grid,borderWidth:1,padding:10};
+  const tick={color:c.text,font:{size:11,family:'DM Sans'}};
+  const endLabels=(fmt,ds=0)=>({
+    id:'endLabels'+ds,
+    afterDatasetsDraw(chart){
+      const {ctx}=chart;
+      chart.data.datasets.forEach((_,d)=>{
+        if(ds!=='all' && d!==ds) return;
+        chart.getDatasetMeta(d).data.forEach((el,k)=>{
+          ctx.save(); ctx.font='bold 11px DM Sans'; ctx.fillStyle=cv('--text1');
+          if(chart.options.indexAxis==='y'){ ctx.textAlign='left'; ctx.textBaseline='middle'; ctx.fillText(fmt(k,d), el.x+6, el.y); }
+          else { ctx.textAlign='center'; ctx.textBaseline='bottom'; ctx.fillText(fmt(k,d), el.x, el.y-4); }
+          ctx.restore();
+        });
+      });
+    },
+  });
+
+  // Incidence growth by race/ethnicity
+  CH.inc = new Chart(document.getElementById('incChart'), {
+    type:'bar',
+    data:{labels:T1D_INC.labels, datasets:[{
+      data:T1D_INC.vals,
+      backgroundColor:T1D_INC.labels.map((l,i)=> i===0 ? blue : (T1D_INC.vals[i]>T1D_INC.vals[0] ? teal : mute+'66')),
+      borderRadius:5, borderSkipped:false, barPercentage:.7,
+    }]},
+    options:{
+      indexAxis:'y', responsive:true, maintainAspectRatio:false, layout:{padding:{right:50}},
+      plugins:{legend:{display:false}, tooltip:{...tip, callbacks:{label:ctx=>` +${ctx.parsed.x.toFixed(2)}% per year`}}},
+      scales:{
+        x:{beginAtZero:true, max:6, title:{display:true,text:'Average annual increase in new cases (%)',...tick}, ticks:{...tick, callback:v=>'+'+v+'%'}, grid:{color:c.grid}},
+        y:{ticks:{...tick, font:{size:11.5,family:'DM Sans',weight:'600'}}, grid:{display:false}},
+      },
+    },
+    plugins:[endLabels(k=>'+'+T1D_INC.vals[k].toFixed(1)+'%')],
+  });
+
+  // Rationing by coverage
+  CH.rat = new Chart(document.getElementById('ratChart'), {
+    type:'bar',
+    data:{labels:T1D_RATION.labels, datasets:[{
+      data:T1D_RATION.vals,
+      backgroundColor:T1D_RATION.labels.map(l=> l==='Medicare' ? mute+'66' : red+'CC'),
+      borderRadius:6, borderSkipped:false, barPercentage:.65,
+    }]},
+    options:{
+      responsive:true, maintainAspectRatio:false, layout:{padding:{top:18}},
+      plugins:{legend:{display:false}, tooltip:{...tip, callbacks:{label:ctx=>` ${ctx.parsed.y}% rationed insulin`}}},
+      scales:{
+        x:{ticks:{...tick, font:{size:11,family:'DM Sans',weight:'600'}}, grid:{display:false}},
+        y:{beginAtZero:true, max:35, ticks:{...tick, callback:v=>v+'%'}, grid:{color:c.grid}},
+      },
+    },
+    plugins:[endLabels(k=>T1D_RATION.vals[k].toFixed(1)+'%')],
+  });
+
+  // Out-of-pocket 2018 vs 2025, with $35 cap line
+  CH.oop = new Chart(document.getElementById('oopChart'), {
+    type:'bar',
+    data:{labels:T1D_OOP.labels, datasets:[
+      {label:'2018', data:T1D_OOP.y2018, backgroundColor:mute+'66', borderRadius:5, borderSkipped:false},
+      {label:'2025', data:T1D_OOP.y2025, backgroundColor:teal, borderRadius:5, borderSkipped:false},
+    ]},
+    options:{
+      responsive:true, maintainAspectRatio:false, layout:{padding:{top:18}},
+      plugins:{
+        legend:{display:true, position:'top', align:'end', labels:{color:c.text, font:{size:11,family:'DM Sans'}, boxWidth:12, boxHeight:12, padding:12}},
+        tooltip:{...tip, callbacks:{label:ctx=>` ${ctx.dataset.label}: $${ctx.parsed.y.toFixed(2)} per month`}},
+      },
+      scales:{
+        x:{ticks:{...tick, font:{size:11.5,family:'DM Sans',weight:'600'}}, grid:{display:false}},
+        y:{beginAtZero:true, max:240, ticks:{...tick, callback:v=>'$'+v}, grid:{color:c.grid}},
+      },
+    },
+    plugins:[endLabels((k,d)=>'$'+(d===0?T1D_OOP.y2018[k]:T1D_OOP.y2025[k]).toFixed(0),'all'), {
+      id:'capLine',
+      afterDraw(chart){
+        const {ctx,chartArea,scales}=chart; const y=scales.y.getPixelForValue(35);
+        ctx.save(); ctx.strokeStyle=red; ctx.lineWidth=1.5; ctx.setLineDash([5,4]);
+        ctx.beginPath(); ctx.moveTo(chartArea.left,y); ctx.lineTo(chartArea.right,y); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle=red; ctx.font='bold 10px DM Sans'; ctx.textAlign='left';
+        ctx.fillText('$35 cap', chartArea.left+6, y-5); ctx.restore();
+      },
+    }],
+  });
+}
+
+// ─────────────────────────────────────────────
 // BOOT — init panel 1
 // ─────────────────────────────────────────────
 INITED[0]=true;
 applyTheme(); // sets theme, then (re)builds panel 1 charts
 </script>
+
+</body></html>
